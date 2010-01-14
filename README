@@ -1,0 +1,35 @@
+Silverpop
+=========
+
+Silverpop Engage and Transact API -- Extracted from ShoeDazzle.com
+
+Silverpop allows for seamless integration from Ruby with the Engage and Transact API."
+
+
+Example
+=======
+
+Transact HTTP Sample Usage:
+
+recipient = { :email            => 'test@test.com',
+              :personalizations => [
+                  {:tag_name => 'FIRST_NAME', :value => 'Joe'},
+                  {:tag_name => 'LAST_NAME',  :value => 'Schmoe'}
+              ] }
+recipients = [  recipient,
+                { :email            => 'test2@test.com',
+                :personalizations => [
+                    {:tag_name => 'FIRST_NAME', :value => 'John'},
+                    {:tag_name => 'LAST_NAME',  :value => 'Smith'}
+                ] },
+                { :email            => 'test3@test.com',
+                  :personalizations => [
+                    {:tag_name => 'FIRST_NAME', :value => 'Jane'},
+                    {:tag_name => 'LAST_NAME',  :value => 'Doe'}
+                ] } ]
+
+sp = Silverpop::Transact.new 4318362, recipients
+sp.query
+
+
+Copyright (c) 2010 George Truong, released under the MIT license
