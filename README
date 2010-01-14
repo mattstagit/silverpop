@@ -49,4 +49,9 @@ TRANSACT
     transact.submit_batch file_path
 
 
+ENGAGE
+
+  Please look through the functions in lib/engage.rb
+
+
 Copyright (c) 2010 George Truong, released under the MIT license

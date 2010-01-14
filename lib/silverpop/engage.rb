@@ -99,6 +99,7 @@ module Silverpop
 
     def import_list(map_file_path, source_file_path)
       Net::FTP.open(FTP_POST_URL) do |ftp|
+        ftp.passive = true  # IMPORTANT! SILVERPOP NEEDS THIS OR IT ACTS WEIRD.
         ftp.login(USERNAME, PASSWORD)
         ftp.chdir('upload')
         ftp.puttextfile(map_file_path)
