@@ -9,7 +9,7 @@ Silverpop allows for seamless integration from Ruby with the Engage and Transact
 Example
 =======
 
-Transact HTTP Sample Usage:
+Transact defining recipients:
 
 recipient = { :email            => 'test@test.com',
               :personalizations => [
@@ -28,8 +28,22 @@ recipients = [  recipient,
                     {:tag_name => 'LAST_NAME',  :value => 'Doe'}
                 ] } ]
 
-sp = Silverpop::Transact.new 4318362, recipients
+
+Transact HTTP Sample Usage:
+
+campaign_id = 1234567
+sp = Silverpop::Transact.new campaign_id, recipients
 sp.query
+
+
+Transact FTP Sample Usage:
+
+campaign_id = 1234567
+options.merge!( { :send_as_batch => 'true' } )
+
+transact = Silverpop::Transact.new(campaign_id, recipients, options)
+transact.save_xml     file_path
+transact.submit_batch file_path
 
 
 Copyright (c) 2010 George Truong, released under the MIT license
