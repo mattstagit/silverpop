@@ -3,7 +3,8 @@ Silverpop
 
 Silverpop Engage and Transact API -- Extracted from ShoeDazzle.com
 
-Silverpop allows for seamless integration from Ruby with the Engage and Transact API."
+Silverpop allows for seamless integration from Ruby with the Engage and Transact API. Built on Rails
+2.1.0. Requires hpricot, net/http, net/ftp, and uri.
 
 
 Examples
