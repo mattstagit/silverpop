@@ -1,49 +1,52 @@
 Silverpop
-=========
+====================================================================================================
 
 Silverpop Engage and Transact API -- Extracted from ShoeDazzle.com
 
 Silverpop allows for seamless integration from Ruby with the Engage and Transact API."
 
 
-Example
-=======
+Examples
+====================================================================================================
 
-Transact defining recipients:
+TRANSACT
 
-recipient = { :email            => 'test@test.com',
-              :personalizations => [
-                  {:tag_name => 'FIRST_NAME', :value => 'Joe'},
-                  {:tag_name => 'LAST_NAME',  :value => 'Schmoe'}
-              ] }
-recipients = [  recipient,
-                { :email            => 'test2@test.com',
-                :personalizations => [
-                    {:tag_name => 'FIRST_NAME', :value => 'John'},
-                    {:tag_name => 'LAST_NAME',  :value => 'Smith'}
-                ] },
-                { :email            => 'test3@test.com',
+
+  Defining recipients:
+
+    recipient = { :email            => 'test@test.com',
                   :personalizations => [
-                    {:tag_name => 'FIRST_NAME', :value => 'Jane'},
-                    {:tag_name => 'LAST_NAME',  :value => 'Doe'}
-                ] } ]
+                      {:tag_name => 'FIRST_NAME', :value => 'Joe'},
+                      {:tag_name => 'LAST_NAME',  :value => 'Schmoe'}
+                  ] }
+    recipients = [  recipient,
+                    { :email            => 'test2@test.com',
+                    :personalizations => [
+                        {:tag_name => 'FIRST_NAME', :value => 'John'},
+                        {:tag_name => 'LAST_NAME',  :value => 'Smith'}
+                    ] },
+                    { :email            => 'test3@test.com',
+                      :personalizations => [
+                        {:tag_name => 'FIRST_NAME', :value => 'Jane'},
+                        {:tag_name => 'LAST_NAME',  :value => 'Doe'}
+                    ] } ]
 
 
-Transact HTTP Sample Usage:
+  Transact HTTP Sample Usage:
 
-campaign_id = 1234567
-sp = Silverpop::Transact.new campaign_id, recipients
-sp.query
+    campaign_id = 1234567
+    sp = Silverpop::Transact.new campaign_id, recipients
+    sp.query
 
 
-Transact FTP Sample Usage:
+  Transact FTP Sample Usage:
 
-campaign_id = 1234567
-options.merge!( { :send_as_batch => 'true' } )
+    campaign_id = 1234567
+    options.merge!( { :send_as_batch => 'true' } )
 
-transact = Silverpop::Transact.new(campaign_id, recipients, options)
-transact.save_xml     file_path
-transact.submit_batch file_path
+    transact = Silverpop::Transact.new(campaign_id, recipients, options)
+    transact.save_xml     file_path
+    transact.submit_batch file_path
 
 
 Copyright (c) 2010 George Truong, released under the MIT license
